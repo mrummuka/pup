@@ -19,6 +19,9 @@ If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
 
+If you're using Docker, then simply (only Docker required)
+    docker pull mrummuka/pup
+
 ## Quick start
 
 ```bash
@@ -29,6 +32,9 @@ Ew, HTML. Let's run that through some pup selectors:
 
 ```bash
 $ curl -s https://news.ycombinator.com/ | pup 'table table tr:nth-last-of-type(n+2) td.title a'
+
+``` .. or using dockerized version:
+$ curl -s https://news.ycombinator.com/ | docker run --rm -i mrummuka/pup pup 'table table tr:nth-last-of-type(n+2) td.title a'
 ```
 
 Okay, how about only the links?
@@ -48,6 +54,10 @@ $ curl -s https://news.ycombinator.com/ | pup 'table table tr:nth-last-of-type(n
 ```bash
 $ cat index.html | pup [flags] '[selectors] [display function]'
 ```
+
+```or with dockerized version
+$ cat index.html | docker run --rm -i mrummuka/pup pup [flags] '[selectors] [display function]'
+
 
 ## Examples
 
